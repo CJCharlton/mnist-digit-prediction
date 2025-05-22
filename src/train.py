@@ -66,3 +66,9 @@ for epoch in range(10):
             correct += (preds.argmax(1) == yb).sum().item()
             total += yb.size(0)
     print(f"Epoch {epoch+1}: Val accuracy {correct/total:.4f}")
+
+# Save the trained model
+import os
+os.makedirs('../models', exist_ok=True)
+torch.save(model.state_dict(), '../models/digit_cnn.pth')
+print("Model saved to ../models/digit_cnn.pth")
